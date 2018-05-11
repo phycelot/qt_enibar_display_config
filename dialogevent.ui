@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogEvent</class>
+ <widget class="QDialog" name="DialogEvent">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1048</width>
+    <height>705</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="2" column="0">
+      <widget class="QTableView" name="listEvent"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QGroupBox" name="eventOptionBox">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>Option</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Search : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="searchEventLineEdit"/>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="allowPastSearchCheckBox">
+          <property name="text">
+           <string>past</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="allowInvisibleSearchCheckBox">
+          <property name="text">
+           <string>invisible</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <widget class="QProgressBar" name="progressBar">
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2" colspan="2">
+    <widget class="QPushButton" name="new_event">
+     <property name="text">
+      <string>&amp;New Event</string>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+N</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2" colspan="2">
+    <widget class="QGroupBox" name="eventEditorGroupBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>Event Editor</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="10" column="0">
+       <widget class="QTextEdit" name="detailsTextEdit"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="Line" name="line_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="Line" name="line_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>StartDateTime</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Details</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Event Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="Line" name="line_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
+       <widget class="QCheckBox" name="visibleCheckBox">
+        <property name="text">
+         <string>Visible</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QDateTimeEdit" name="startDateTimeEdit"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="eventNameLineEdit"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>EndDateTime</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QDateTimeEdit" name="endDateTimeEdit"/>
+      </item>
+      <item row="11" column="0">
+       <widget class="Line" name="line_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="0">
+       <widget class="Line" name="line_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="0">
+       <widget class="QPushButton" name="savePushButton">
+        <property name="text">
+         <string>&amp;Save</string>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="0">
+       <widget class="QPushButton" name="cancelPushButton">
+        <property name="text">
+         <string>&amp;Cancel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

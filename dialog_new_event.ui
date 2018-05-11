@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog_new_event</class>
+ <widget class="QDialog" name="Dialog_new_event">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>598</width>
+    <height>477</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>image/icon.png</normaloff>image/icon.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Name</string>
+     </property>
+     <property name="buddy">
+      <cstring>nameLineEdit</cstring>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="nameLineEdit"/>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>StartDateTime</string>
+     </property>
+     <property name="buddy">
+      <cstring>startDateTimeEdit</cstring>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDateTimeEdit" name="startDateTimeEdit"/>
+   </item>
+   <item>
+    <widget class="Line" name="line_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>EndDateTime</string>
+     </property>
+     <property name="buddy">
+      <cstring>endDateTimeEdit</cstring>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDateTimeEdit" name="endDateTimeEdit"/>
+   </item>
+   <item>
+    <widget class="Line" name="line_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="visibleCheckBox">
+     <property name="text">
+      <string>visible</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="Line" name="line_4">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Details</string>
+     </property>
+     <property name="buddy">
+      <cstring>detailTextEdit</cstring>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="detailTextEdit"/>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="okPushButton">
+       <property name="text">
+        <string>&amp;Ok</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancelPushButton">
+       <property name="text">
+        <string>&amp;Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>nameLineEdit</tabstop>
+  <tabstop>startDateTimeEdit</tabstop>
+  <tabstop>endDateTimeEdit</tabstop>
+  <tabstop>detailTextEdit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
