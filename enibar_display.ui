@@ -115,9 +115,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QProgressBar" name="progressBar">
+          <widget class="QProgressBar" name="internetProgressBar">
            <property name="value">
-            <number>24</number>
+            <number>0</number>
            </property>
            <property name="textVisible">
             <bool>false</bool>
@@ -139,9 +139,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QProgressBar" name="progressBar_2">
+          <widget class="QProgressBar" name="enibarProgressBar">
            <property name="value">
-            <number>24</number>
+            <number>0</number>
            </property>
            <property name="textVisible">
             <bool>false</bool>
@@ -163,9 +163,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QProgressBar" name="progressBar_3">
+          <widget class="QProgressBar" name="screenProgressBar">
            <property name="value">
-            <number>24</number>
+            <number>0</number>
            </property>
            <property name="textVisible">
             <bool>false</bool>
