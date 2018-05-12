@@ -59,16 +59,16 @@ void enibar_display::init(){
     if (!enibar_bdd.connect()) {//connect to enibar bdd
         qCritical() << "fail to connect to enibar bdd";
         ui->enibarProgressBar->setValue(0);
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("OUPS");
-        msgBox.setText("fail to connect to enibar bdd, continue ?\n");
-        msgBox.setStandardButtons(QMessageBox::Yes);
-        msgBox.addButton(QMessageBox::No);
-        msgBox.setDefaultButton(QMessageBox::No);
-        if (!(msgBox.exec() == QMessageBox::Yes))
-        {
-            close();
-        }
+//        QMessageBox msgBox;
+//        msgBox.setWindowTitle("OUPS");
+//        msgBox.setText("fail to connect to enibar bdd, continue ?\n");
+//        msgBox.setStandardButtons(QMessageBox::Yes);
+//        msgBox.addButton(QMessageBox::No);
+//        msgBox.setDefaultButton(QMessageBox::No);
+//        if (!(msgBox.exec() == QMessageBox::Yes))
+//        {
+//            close();
+//        }
     }
     else
     {
@@ -78,15 +78,15 @@ void enibar_display::init(){
     if (!event_bdd_management::try_connect()) { // local connect
         qCritical() << "fail to connect to local bdd";
         ui->screenProgressBar->setValue(0);
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("OUPS");
-        msgBox.setText("fail to connect to local bdd, continue ?\n");
-        msgBox.setStandardButtons(QMessageBox::Yes);
-        msgBox.addButton(QMessageBox::No);
-        msgBox.setDefaultButton(QMessageBox::No);
-        if (!(msgBox.exec() == QMessageBox::Yes)){
-            close();
-        }
+//        QMessageBox msgBox;
+//        msgBox.setWindowTitle("OUPS");
+//        msgBox.setText("fail to connect to local bdd, continue ?\n");
+//        msgBox.setStandardButtons(QMessageBox::Yes);
+//        msgBox.addButton(QMessageBox::No);
+//        msgBox.setDefaultButton(QMessageBox::No);
+//        if (!(msgBox.exec() == QMessageBox::Yes)){
+//            close();
+//        }
     }
     else
     {

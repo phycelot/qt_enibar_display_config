@@ -18,7 +18,7 @@ enibar_bdd_management::enibar_bdd_management()
 bool enibar_bdd_management::connect(){
     qDebug() << "try to connect";
 
-    return true;
+    return false;
 }
 
 void enibar_bdd_management::update(){

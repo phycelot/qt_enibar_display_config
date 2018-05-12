@@ -39,6 +39,7 @@ DialogEvent::DialogEvent(QWidget *parent) :
     ui->listEvent->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->listEvent->horizontalHeader()->setStretchLastSection(true);
     QObject::connect(ui->listEvent,SIGNAL(clicked(QModelIndex)),this,SLOT(listEventClicked()));
+    QObject::connect(ui->cancelPushButton,SIGNAL(clicked()),this,SLOT(loadInfoForModification()));
 
     //detect click event
     installEventFilter(this);
@@ -126,9 +127,23 @@ bool DialogEvent::eventFilter(QObject* object, QEvent* event) //used to delete s
                 qInfo() <<selectedRow;
                 qDebug() << "Event filter: Focus yes, Delete key pressed";
                 qInfo() << "user wants to delete element " << selectedRow;
+                bool success;
+                QString val;
+                QFile file;
+                file.setFileName("./config_file/testListEvent.json");
+                success=file.open(QIODevice::Text | QIODevice::ReadOnly);
+                val = file.readAll();
+                file.close();
+                if (!success){
+                    qWarning() << "can't access to file";
+                }
+                QJsonDocument d = QJsonDocument::fromJson(val.toUtf8());
+                QJsonArray sett2 = d.object()["eventList"].toArray();
+                QJsonObject selectedRowObject=sett2[selectedRow].toObject();
+                qDebug() << selectedRowObject;
                 QMessageBox msgBox;
                 msgBox.setWindowTitle("Delete");
-                QString message = "Delete nameOfEvent ?\n";  //wip add nameOfEvent
+                QString message = "Delete "+selectedRowObject.value("name").toString()+" ?\n";  //wip add nameOfEvent
                 msgBox.setText(message);
                 msgBox.setStandardButtons(QMessageBox::Yes);
                 msgBox.addButton(QMessageBox::No);
@@ -166,40 +181,67 @@ void DialogEvent::on_new_event_clicked()
 void DialogEvent::listEventClicked()
 {
     ui->eventEditorGroupBox->setEnabled(true);
-    QItemSelectionModel *select = ui->listEvent->selectionModel();
+//    QItemSelectionModel *select = ui->listEvent->selectionModel();
     if(ui->listEvent->hasFocus()) {
-        int selectedRow = select->selectedRows()[0].row();
-        qInfo() <<selectedRow;
-        bool success;
-        QString val;
-        QFile file;
-        file.setFileName("./config_file/testListEvent.json");
-        success=file.open(QIODevice::Text | QIODevice::ReadOnly);
-        val = file.readAll();
-        file.close();
-        if (!success){
-            qWarning() << "can't access to file";
-        }
-        QJsonDocument d = QJsonDocument::fromJson(val.toUtf8());
-        QJsonArray sett2 = d.object()["eventList"].toArray();
-        qDebug() << sett2[selectedRow];
-        qDebug() << sett2[selectedRow].toObject().value("name").toString();
-        ui->eventNameLineEdit->setText(sett2[selectedRow].toObject().value("name").toString());
-        ui->detailsTextEdit->setText(sett2[selectedRow].toObject().value("details").toString());
-        if(sett2[selectedRow].toObject().value("visible").toString()=="1")
-        {
-            ui->visibleCheckBox->setChecked(true);
-        }
-        else
-        {
-            ui->visibleCheckBox->setChecked(false);
-        }
+        loadInfoForModification();
     } else {
         ui->eventEditorGroupBox->setEnabled(false);
     }
 
 }
 
+void DialogEvent::loadInfoForModification()
+{
+    QItemSelectionModel *select = ui->listEvent->selectionModel();
+    int selectedRow = select->selectedRows()[0].row();
+    qInfo() <<selectedRow;
+    bool success;
+    QString val;
+    QFile file;
+    file.setFileName("./config_file/testListEvent.json");
+    success=file.open(QIODevice::Text | QIODevice::ReadOnly);
+    val = file.readAll();
+    file.close();
+    if (!success){
+        qWarning() << "can't access to file";
+    }
+    QJsonDocument d = QJsonDocument::fromJson(val.toUtf8());
+    QJsonArray sett2 = d.object()["eventList"].toArray();
+    QJsonObject selectedRowObject=sett2[selectedRow].toObject();
+    qDebug() << selectedRowObject;
+    ui->eventNameLineEdit->setText(selectedRowObject.value("name").toString());
+    ui->detailsTextEdit->setText(selectedRowObject.value("details").toString());
+    if(selectedRowObject.value("visible").toString()=="1")
+    {
+        ui->visibleCheckBox->setChecked(true);
+    }
+    else
+    {
+        ui->visibleCheckBox->setChecked(false);
+    }
+    QDateTime startDateTime;
+    QString strStartDateTime =selectedRowObject.value("startDateTime").toString();
+    startDateTime =startDateTime.fromString(strStartDateTime,"yyyy-MM-ddThh:mm");
+    if(startDateTime.isValid())
+    {
+        ui->startDateTimeEdit->setDateTime(startDateTime);
+    }
+    else
+    {
+        qWarning() << "startDateTime is not a datetime";
+    }
+    QDateTime endDateTime;
+    QString strEndDateTime =selectedRowObject.value("endDateTime").toString();
+    endDateTime = endDateTime.fromString(strEndDateTime,"yyyy-MM-ddThh:mm");
+    if(endDateTime.isValid())
+    {
+        ui->endDateTimeEdit->setDateTime(endDateTime);
+    }
+    else
+    {
+        qWarning() << "endDateTime is not a datetime";
+    }
+}
 void DialogEvent::changeEvent(QEvent * e) {
     if(e->type() == QEvent::ActivationChange && this->isActiveWindow()) {
         qInfo() << "change event";

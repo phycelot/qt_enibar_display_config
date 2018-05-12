@@ -41,6 +41,20 @@ public:
     QAction *actionRefresh;
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
+    QGridLayout *gridLayout;
+    QGroupBox *event_group;
+    QHBoxLayout *horizontalLayout_2;
+    QTableView *event_list;
+    QGroupBox *message_group;
+    QGridLayout *gridLayout_2;
+    QGroupBox *scrolling_message_group;
+    QVBoxLayout *verticalLayout_5;
+    QTextBrowser *scrolling_message_show;
+    QGroupBox *bar_name_group;
+    QVBoxLayout *verticalLayout_6;
+    QTextBrowser *bar_name_show;
+    QGroupBox *conso_group;
+    QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout;
     QPushButton *conso_button;
     QPushButton *event_button;
@@ -58,20 +72,6 @@ public:
     QProgressBar *screenProgressBar;
     QSpacerItem *verticalSpacer;
     QFrame *line_2;
-    QGridLayout *gridLayout;
-    QGroupBox *event_group;
-    QHBoxLayout *horizontalLayout_2;
-    QTableView *event_list;
-    QGroupBox *message_group;
-    QGridLayout *gridLayout_2;
-    QGroupBox *scrolling_message_group;
-    QVBoxLayout *verticalLayout_5;
-    QTextBrowser *scrolling_message_show;
-    QGroupBox *bar_name_group;
-    QVBoxLayout *verticalLayout_6;
-    QTextBrowser *bar_name_show;
-    QGroupBox *conso_group;
-    QVBoxLayout *verticalLayout_3;
     QMenuBar *menuBar;
     QMenu *menu_Tools;
     QMenu *menu_Help;
@@ -109,6 +109,97 @@ public:
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        gridLayout = new QGridLayout();
+        gridLayout->setSpacing(6);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        event_group = new QGroupBox(centralWidget);
+        event_group->setObjectName(QStringLiteral("event_group"));
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Minimum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(event_group->sizePolicy().hasHeightForWidth());
+        event_group->setSizePolicy(sizePolicy1);
+        event_group->setMaximumSize(QSize(250, 16777215));
+        event_group->setCheckable(true);
+        horizontalLayout_2 = new QHBoxLayout(event_group);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        event_list = new QTableView(event_group);
+        event_list->setObjectName(QStringLiteral("event_list"));
+        event_list->setMinimumSize(QSize(30, 0));
+        event_list->setAutoFillBackground(false);
+
+        horizontalLayout_2->addWidget(event_list);
+
+
+        gridLayout->addWidget(event_group, 0, 3, 1, 1);
+
+        message_group = new QGroupBox(centralWidget);
+        message_group->setObjectName(QStringLiteral("message_group"));
+        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Expanding);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(message_group->sizePolicy().hasHeightForWidth());
+        message_group->setSizePolicy(sizePolicy2);
+        message_group->setMinimumSize(QSize(0, 0));
+        message_group->setMaximumSize(QSize(250, 200));
+        message_group->setCheckable(true);
+        gridLayout_2 = new QGridLayout(message_group);
+        gridLayout_2->setSpacing(6);
+        gridLayout_2->setContentsMargins(11, 11, 11, 11);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        scrolling_message_group = new QGroupBox(message_group);
+        scrolling_message_group->setObjectName(QStringLiteral("scrolling_message_group"));
+        scrolling_message_group->setMinimumSize(QSize(0, 0));
+        scrolling_message_group->setMaximumSize(QSize(16777215, 100));
+        verticalLayout_5 = new QVBoxLayout(scrolling_message_group);
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        scrolling_message_show = new QTextBrowser(scrolling_message_group);
+        scrolling_message_show->setObjectName(QStringLiteral("scrolling_message_show"));
+        scrolling_message_show->setMinimumSize(QSize(0, 0));
+        scrolling_message_show->setMaximumSize(QSize(16777215, 16777215));
+
+        verticalLayout_5->addWidget(scrolling_message_show);
+
+
+        gridLayout_2->addWidget(scrolling_message_group, 0, 1, 1, 1);
+
+        bar_name_group = new QGroupBox(message_group);
+        bar_name_group->setObjectName(QStringLiteral("bar_name_group"));
+        bar_name_group->setMinimumSize(QSize(0, 0));
+        bar_name_group->setMaximumSize(QSize(16777215, 100));
+        verticalLayout_6 = new QVBoxLayout(bar_name_group);
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        bar_name_show = new QTextBrowser(bar_name_group);
+        bar_name_show->setObjectName(QStringLiteral("bar_name_show"));
+        bar_name_show->setMinimumSize(QSize(0, 0));
+        bar_name_show->setMaximumSize(QSize(16777215, 50));
+
+        verticalLayout_6->addWidget(bar_name_show, 0, Qt::AlignBottom);
+
+
+        gridLayout_2->addWidget(bar_name_group, 1, 1, 1, 1);
+
+
+        gridLayout->addWidget(message_group, 1, 3, 1, 1);
+
+        conso_group = new QGroupBox(centralWidget);
+        conso_group->setObjectName(QStringLiteral("conso_group"));
+        sizePolicy2.setHeightForWidth(conso_group->sizePolicy().hasHeightForWidth());
+        conso_group->setSizePolicy(sizePolicy2);
+        conso_group->setCheckable(true);
+        verticalLayout_3 = new QVBoxLayout(conso_group);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+
+        gridLayout->addWidget(conso_group, 0, 2, 2, 1);
+
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -203,105 +294,14 @@ public:
         verticalLayout->addItem(verticalSpacer);
 
 
-        horizontalLayout->addLayout(verticalLayout);
+        gridLayout->addLayout(verticalLayout, 0, 0, 2, 1);
 
         line_2 = new QFrame(centralWidget);
         line_2->setObjectName(QStringLiteral("line_2"));
         line_2->setFrameShape(QFrame::VLine);
         line_2->setFrameShadow(QFrame::Sunken);
 
-        horizontalLayout->addWidget(line_2);
-
-        gridLayout = new QGridLayout();
-        gridLayout->setSpacing(6);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        event_group = new QGroupBox(centralWidget);
-        event_group->setObjectName(QStringLiteral("event_group"));
-        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Minimum);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(event_group->sizePolicy().hasHeightForWidth());
-        event_group->setSizePolicy(sizePolicy1);
-        event_group->setMaximumSize(QSize(250, 16777215));
-        event_group->setCheckable(true);
-        horizontalLayout_2 = new QHBoxLayout(event_group);
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        event_list = new QTableView(event_group);
-        event_list->setObjectName(QStringLiteral("event_list"));
-        event_list->setMinimumSize(QSize(30, 0));
-        event_list->setAutoFillBackground(false);
-
-        horizontalLayout_2->addWidget(event_list);
-
-
-        gridLayout->addWidget(event_group, 0, 2, 1, 1);
-
-        message_group = new QGroupBox(centralWidget);
-        message_group->setObjectName(QStringLiteral("message_group"));
-        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Expanding);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(message_group->sizePolicy().hasHeightForWidth());
-        message_group->setSizePolicy(sizePolicy2);
-        message_group->setMinimumSize(QSize(0, 0));
-        message_group->setMaximumSize(QSize(250, 200));
-        message_group->setCheckable(true);
-        gridLayout_2 = new QGridLayout(message_group);
-        gridLayout_2->setSpacing(6);
-        gridLayout_2->setContentsMargins(11, 11, 11, 11);
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        scrolling_message_group = new QGroupBox(message_group);
-        scrolling_message_group->setObjectName(QStringLiteral("scrolling_message_group"));
-        scrolling_message_group->setMinimumSize(QSize(0, 0));
-        scrolling_message_group->setMaximumSize(QSize(16777215, 100));
-        verticalLayout_5 = new QVBoxLayout(scrolling_message_group);
-        verticalLayout_5->setSpacing(6);
-        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        scrolling_message_show = new QTextBrowser(scrolling_message_group);
-        scrolling_message_show->setObjectName(QStringLiteral("scrolling_message_show"));
-        scrolling_message_show->setMinimumSize(QSize(0, 0));
-        scrolling_message_show->setMaximumSize(QSize(16777215, 16777215));
-
-        verticalLayout_5->addWidget(scrolling_message_show);
-
-
-        gridLayout_2->addWidget(scrolling_message_group, 0, 1, 1, 1);
-
-        bar_name_group = new QGroupBox(message_group);
-        bar_name_group->setObjectName(QStringLiteral("bar_name_group"));
-        bar_name_group->setMinimumSize(QSize(0, 0));
-        bar_name_group->setMaximumSize(QSize(16777215, 100));
-        verticalLayout_6 = new QVBoxLayout(bar_name_group);
-        verticalLayout_6->setSpacing(6);
-        verticalLayout_6->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        bar_name_show = new QTextBrowser(bar_name_group);
-        bar_name_show->setObjectName(QStringLiteral("bar_name_show"));
-        bar_name_show->setMinimumSize(QSize(0, 0));
-        bar_name_show->setMaximumSize(QSize(16777215, 50));
-
-        verticalLayout_6->addWidget(bar_name_show, 0, Qt::AlignBottom);
-
-
-        gridLayout_2->addWidget(bar_name_group, 1, 1, 1, 1);
-
-
-        gridLayout->addWidget(message_group, 1, 2, 1, 1);
-
-        conso_group = new QGroupBox(centralWidget);
-        conso_group->setObjectName(QStringLiteral("conso_group"));
-        sizePolicy2.setHeightForWidth(conso_group->sizePolicy().hasHeightForWidth());
-        conso_group->setSizePolicy(sizePolicy2);
-        conso_group->setCheckable(true);
-        verticalLayout_3 = new QVBoxLayout(conso_group);
-        verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-
-        gridLayout->addWidget(conso_group, 0, 1, 2, 1);
+        gridLayout->addWidget(line_2, 0, 1, 2, 1);
 
 
         horizontalLayout->addLayout(gridLayout);
@@ -339,13 +339,6 @@ public:
 #ifndef QT_NO_SHORTCUT
         actionRefresh->setShortcut(QApplication::translate("enibar_display", "Ctrl+R", Q_NULLPTR));
 #endif // QT_NO_SHORTCUT
-        conso_button->setText(QApplication::translate("enibar_display", "&Conso", Q_NULLPTR));
-        event_button->setText(QApplication::translate("enibar_display", "&Event", Q_NULLPTR));
-        message_button->setText(QApplication::translate("enibar_display", "&Message", Q_NULLPTR));
-        groupBox->setTitle(QApplication::translate("enibar_display", "Statut", Q_NULLPTR));
-        label->setText(QApplication::translate("enibar_display", "Internet", Q_NULLPTR));
-        label_2->setText(QApplication::translate("enibar_display", "Enibar", Q_NULLPTR));
-        label_3->setText(QApplication::translate("enibar_display", "Screen", Q_NULLPTR));
         event_group->setTitle(QApplication::translate("enibar_display", "Event", Q_NULLPTR));
         message_group->setTitle(QApplication::translate("enibar_display", "Message", Q_NULLPTR));
         scrolling_message_group->setTitle(QApplication::translate("enibar_display", "Message D\303\251filant", Q_NULLPTR));
@@ -361,6 +354,22 @@ public:
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">nom du bar</p></body></html>", Q_NULLPTR));
         conso_group->setTitle(QApplication::translate("enibar_display", "Conso", Q_NULLPTR));
+        conso_button->setText(QApplication::translate("enibar_display", "&Conso", Q_NULLPTR));
+#ifndef QT_NO_SHORTCUT
+        conso_button->setShortcut(QApplication::translate("enibar_display", "Ctrl+C", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        event_button->setText(QApplication::translate("enibar_display", "&Event", Q_NULLPTR));
+#ifndef QT_NO_SHORTCUT
+        event_button->setShortcut(QApplication::translate("enibar_display", "Ctrl+E", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        message_button->setText(QApplication::translate("enibar_display", "&Message", Q_NULLPTR));
+#ifndef QT_NO_SHORTCUT
+        message_button->setShortcut(QApplication::translate("enibar_display", "Ctrl+M", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        groupBox->setTitle(QApplication::translate("enibar_display", "Statut", Q_NULLPTR));
+        label->setText(QApplication::translate("enibar_display", "Internet", Q_NULLPTR));
+        label_2->setText(QApplication::translate("enibar_display", "Enibar", Q_NULLPTR));
+        label_3->setText(QApplication::translate("enibar_display", "Screen", Q_NULLPTR));
         menu_Tools->setTitle(QApplication::translate("enibar_display", "&Tools", Q_NULLPTR));
         menu_Help->setTitle(QApplication::translate("enibar_display", "&Help", Q_NULLPTR));
     } // retranslateUi

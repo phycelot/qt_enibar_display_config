@@ -33,6 +33,7 @@ private:
 private slots :
     void on_new_event_clicked();
     void listEventClicked();
+    void loadInfoForModification();
 };
 
 #endif // DIALOGEVENT_H

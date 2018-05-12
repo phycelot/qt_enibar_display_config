@@ -22,21 +22,22 @@ namespace event_bdd_management {
 
 bool try_connect() {
     qDebug() << "try to connect";
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE","eventDataBase");
-    db.setHostName("192.168.1.15");
-    db.setDatabaseName("enibar_display");
-    db.setUserName("root");
-    db.setPassword("sev");
-    bool ok =db.open();
-    QSqlQuery query = QSqlQuery (db);
-    qInfo() << query.isValid();
-    if (!query.exec("SHOW TABLES;"))
-    {
-        qWarning() << "fail query";
-        qInfo() << query.lastError();
-    }
-    db.close();
-    return ok;
+//    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE","eventDataBase");
+//    db.setHostName("192.168.1.15");
+//    db.setDatabaseName("enibar_display");
+//    db.setUserName("root");
+//    db.setPassword("sev");
+//    bool ok =db.open();
+//    QSqlQuery query = QSqlQuery (db);
+//    qInfo() << query.isValid();
+//    if (!query.exec("SHOW TABLES;"))
+//    {
+//        qWarning() << "fail query";
+//        qInfo() << query.lastError();
+//    }
+//    db.close();
+//    return ok;
+    return false;
 }
 QSqlDatabase connect() {
     qDebug() << "try to connect";
@@ -117,7 +118,7 @@ bool addEvent(QString name, QDateTime startDateTime, QDateTime endDateTime,bool 
         ivisible=0;
     };
     qDebug() << ivisible;
-    QString j = "{\"name\":\""+name+"\",\"startDateTime\":\""+startDateTime.toString("yyyy-MM-ddThh:mm:ss")+"\",\"endDateTime\":\""+endDateTime.toString("yyyy-MM-ddThh:mm:ss")+"\",\"visible\":\""+QString::number(ivisible)+"\",\"details\":\""+details+"\"}";
+    QString j = "{\"name\":\""+name+"\",\"startDateTime\":\""+startDateTime.toString("yyyy-MM-ddThh:mm")+"\",\"endDateTime\":\""+endDateTime.toString("yyyy-MM-ddThh:mm")+"\",\"visible\":\""+QString::number(ivisible)+"\",\"details\":\""+details+"\"}";
     QJsonDocument f =  QJsonDocument::fromJson(j.toUtf8());
     QJsonValue r= f.object();
     qDebug() << r;
