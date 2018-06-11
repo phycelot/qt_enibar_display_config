@@ -152,7 +152,13 @@ void enibar_display::refresh(){
     //    display_bdd.update();
     //    enibar_bdd.update();
 
-    //refresh conso & event
+    //refresh conso
+    QTableView *list1= new QTableView();
+    ui->conso_group->layout()->addWidget(list1);
+
+
+
+    //refresh event
     QJsonArray eventList = event_bdd_management::getListEvent("",1,0);
     int modelNbrofRow=eventList.size();
     int modelNbrofColumn=2;

@@ -22,21 +22,21 @@ namespace event_bdd_management {
 
 bool try_connect() {
     qDebug() << "try to connect";
-//    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE","eventDataBase");
-//    db.setHostName("192.168.1.15");
-//    db.setDatabaseName("enibar_display");
-//    db.setUserName("root");
-//    db.setPassword("sev");
-//    bool ok =db.open();
-//    QSqlQuery query = QSqlQuery (db);
-//    qInfo() << query.isValid();
-//    if (!query.exec("SHOW TABLES;"))
-//    {
-//        qWarning() << "fail query";
-//        qInfo() << query.lastError();
-//    }
-//    db.close();
-//    return ok;
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE","eventDataBase");
+    db.setHostName("192.168.1.15");
+    db.setDatabaseName("enibar_display");
+    db.setUserName("root");
+    db.setPassword("sev");
+    bool ok =db.open();
+    QSqlQuery query = QSqlQuery (db);
+    qInfo() << query.isValid();
+    if (!query.exec("SHOW TABLES;"))
+    {
+        qWarning() << "fail query";
+        qInfo() << query.lastError();
+    }
+    db.close();
+    return ok;
     return false;
 }
 QSqlDatabase connect() {
